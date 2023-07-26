@@ -3,7 +3,7 @@
     <section class="head11 flex">
         <div class="head11-left">
             <img src="{{ asset('images/flag.gif') }}" alt="" width="35" height="20">
-            <h3>Gift Basket and Hampers Delivery in Germany</h3>
+            <h3>Gift Basket and Hampers Delivery in Germanyy</h3>
         </div>
         <div class="head11-right">
             <a href="" alt="Corporate Orders">Corporate Orders</a>
