@@ -1,0 +1,68 @@
+
+.top {
+    border-bottom: 1px solid #eee;
+    display: block;
+    margin-bottom: 33px;
+}
+
+.top a {
+    background: #FFF;
+    padding-right: 10px;
+    position: relative;
+    top: 8px;
+}
+
+.syntaxhighlighter {
+    padding: .5em 0;
+}
+
+dl.Zebra_Accordion {
+    width: 100% ;
+}
+
+dl.Zebra_Accordion dt {
+    background: #f879ae;
+    color: #fff;
+    font-weight: bold;
+    padding:10px 15px;
+    border-bottom: 0;
+    float: left;
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+dl.Zebra_Accordion dt.Zebra_Accordion_Expanded {
+    background: #dc446c;
+    padding: 10px 30px;
+    color: #FFF;
+}
+.act h6{ color:#fff; }
+dl.Zebra_Accordion dt h6{
+    width: auto;
+    float: none;
+    line-height: 7px;
+    color:#fff;
+    font-family: 'sailecregular';
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 0 0 20px;
+}
+dl.Zebra_Accordion dd {
+    background: #fff;
+    padding: 15px;
+    margin: 1px 0;
+	float:left;
+	width:100%;
+}
+
+#Zebra_Accordion3 dt:before {
+    content: "▶";
+    margin-right: 10px;
+
+}
+
+#Zebra_Accordion3 dt.Zebra_Accordion_Expanded:before {
+    content: "▼";
+    margin-right: 10px;
+
+}
