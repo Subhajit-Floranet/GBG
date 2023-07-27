@@ -10,6 +10,7 @@ use App\Http\Controllers\Site\CategoryController;
 use App\Http\Controllers\Site\ProductController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\Site\CheckoutController;
+use App\Http\Controllers\Site\ContactsController;
 use App\Http\Controllers\Site\UsersController;
 
 
@@ -227,6 +228,32 @@ Route::any('/checkout-message', [CheckoutController::class, 'checkoutMessage'])-
     //****END********//
 
 //});
+
+//Contact Us Section
+Route::any('/contact-us', [ContactsController::class, 'index'])->name('contact-us'); 
+Route::any('/reload-captcha', [ContactsController::class, 'reloadcaptcha'])->name('reload-captcha');
+Route::any('/contact-ticket/{id}', [ContactsController::class, 'contactTicket'])->name('contact-ticket');
+Route::any('/view-ticket-details', [ContactsController::class, 'viewTicketDetails'])->name('view-ticket-details');
+Route::any('/contact-status', [ContactsController::class, 'contactStatus'])->name('contact-status');
+
+//For CMS pages Only//
+Route::any('/bulk-orders', [HomeController::class, 'bulkOrders'])->name('bulk-orders');
+Route::any('/terms-and-conditions', [HomeController::class, 'termsAndConditions'])->name('terms-and-conditions');
+Route::any('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::any('/substitution-policy', [HomeController::class, 'substitution_policy'])->name('substitution-policy');
+Route::any('/career', [HomeController::class, 'career'])->name('career');
+Route::any('/delivery-locations', [HomeController::class, 'deliveryLocations'])->name('delivery-locations');
+Route::any('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::any('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::any('/payment', [HomeController::class, 'payment'])->name('payment');
+Route::any('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
+Route::any('/sitemap', [HomeController::class, 'sitemap'])->name('sitemap');
+Route::any('/refund-policy', [HomeController::class, 'refundPolicy'])->name('refund-policy');
+Route::any('/shipping-policy', [HomeController::class, 'shippingPolicy'])->name('shipping-policy');
+Route::any('/cancellation-policy', [HomeController::class, 'cancellationPolicy'])->name('cancellation-policy');
+
+Route::any('/order-status', [HomeController::class, 'orderStatus'])->name('order-status');
+Route::any('/order-status-details', [HomeController::class, 'orderStatusDetails'])->name('order-status-details');
 
 // Route::prefix('Site')->name('site.')->group(function(){
 //     Route::any('/', [HomeController::class, 'index'])->name('home');
