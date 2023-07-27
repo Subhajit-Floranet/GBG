@@ -356,7 +356,7 @@ $meta_title = $contact_us->meta_title;
                     <a href="javascript:void(0)" class="reloadcaptcha"><i class="fa-solid fa-arrows-rotate"></i></a>
                 </div>
             </div>
-            <div class="captcha-down">
+            <div class="captcha-down con-field">
                 <input required="" autocomplete="off" id="capcha_code" placeholder="Type the text*" equalto="#gencode" name="capchacode" type="text">
                 <input type="hidden" name="gencode_verify" id="gencode_verify" value="<?php echo $gencode; ?>" />
             </div>
@@ -404,7 +404,7 @@ $meta_title = $contact_us->meta_title;
 
 <script type="text/javascript">
     $(document).ready(function(){
-      $("#query").on('change', function(){
+      $("#contact_type").on('change', function(){
         var demovalue = $(this).val();  
           $(".hidediv").hide();
           if(demovalue == "existing"){

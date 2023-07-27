@@ -230,7 +230,7 @@ Route::any('/checkout-message', [CheckoutController::class, 'checkoutMessage'])-
 //});
 
 //Contact Us Section
-Route::any('/contact-us', [ContactsController::class, 'index'])->name('contact-us'); 
+Route::any('/contact-us', [ContactsController::class, 'contct'])->name('contact-us'); 
 Route::any('/reload-captcha', [ContactsController::class, 'reloadcaptcha'])->name('reload-captcha');
 Route::any('/contact-ticket/{id}', [ContactsController::class, 'contactTicket'])->name('contact-ticket');
 Route::any('/view-ticket-details', [ContactsController::class, 'viewTicketDetails'])->name('view-ticket-details');
