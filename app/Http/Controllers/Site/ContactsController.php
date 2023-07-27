@@ -23,7 +23,7 @@ class ContactsController extends RootController
         //$this->middleware('guest');
     }
 
-    public function index( $token = null, Request $request )
+    public function contct( Request $request )
     {
         $contact        = new Contact;
         $contact_us     = Cms::where([['id',7],['is_block','N']])->first();
@@ -88,7 +88,7 @@ class ContactsController extends RootController
                 return redirect()->back()->with($request->except(['_method', '_token']));
             }
         }
-        return view('site.contact_us')->with(['contact' => $contact, 'contact_us' => $contact_us, /*'contact_type' => $contact_type,*/ 'token' => $token]);
+        return view('site.contact_us')->with(['contact' => $contact, 'contact_us' => $contact_us, /*'contact_type' => $contact_type, 'token' => $token*/]);
     }
 
     public function contactTicket( $ticket_id = null,Request $request ) {

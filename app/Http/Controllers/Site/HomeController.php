@@ -251,12 +251,12 @@ class HomeController extends Controller
                 $order_dtl = Order::where([['unique_order_id', $order_id]])->first();
                 if(!(isset($order_dtl->id) && $order_dtl->id>0)){
                     $request->session()->flash('alert-danger', 'Sorry! You have inserted wrong order-Id!');
-                    return redirect()->route('site.order-status');
+                    return redirect()->route('order-status');
                 }
                 $user_dtl = User::where('id', $order_dtl->user_id)->first();
                 if(!(isset($user_dtl->email) && $user_dtl->email==$email)){
                     $request->session()->flash('alert-danger', 'Please enter your registered email-Id!');
-                    return redirect()->route('site.order-status');
+                    return redirect()->route('order-status');
                 }
             $total_cart_price = 0.00; $occasion_product_price = 0;
             

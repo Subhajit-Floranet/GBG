@@ -21,18 +21,20 @@
             
             <form method="POST" action="{{ route('order-status') }}"  id="orderStatus" enctype="multipart/form-data"> 
                 @csrf   
-                <div class="track-order-form flex">
-                    <div class="tof-form-group">
-                        <label for="name">Order ID</label>
-                        <input required="" class="form-control" id="order_id" placeholder="Order ID" name="order_id" type="text">
+                <div class="track-container">
+                    <div class="track-order-form ">
+                        <div class="tof-form-group">
+                            <label for="name">Order ID</label>
+                            <input required="" class="form-control" id="order_id" placeholder="Order ID" name="order_id" type="text">
+                        </div>
+                        <div class="tof-form-group">
+                            <label for="email">Email</label>
+                            <input required="" email="" class="form-control" id="emailid" placeholder="Email" name="emailid" type="text">
+                        </div>
                     </div>
-                    <div class="tof-form-group">
-                        <label for="email">Email</label>
-                        <input required="" email="" class="form-control" id="emailid" placeholder="Email" name="emailid" type="text">
+                    <div class="track-order-btn">
+                        <button>Submit</button>
                     </div>
-                </div>
-                <div class="track-order-btn">
-                    <button>Submit</button>
                 </div>
             </form>
         </div>

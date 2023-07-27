@@ -7,8 +7,8 @@
     <li>View Ticket Conversation</li>
 </ul>
 
-<div class="ticket-ahead">
-    <div class="ticket-heading">
+<div class="ticket-ahead ">
+    <div class="ticket-heading ">
         <h1>Ticket Ahead</h1>
     </div>
     <?php
@@ -31,7 +31,7 @@
             ?>
             @if( $details->created_by != 1 )
                 <div class="msg-img-txt flex">
-                    <div class="msg-img"><img src="{{ asset('images/site/user.jpg') }}" alt="Users"></div>
+                    <div class="msg-img"><img src="{{ asset('images/user.jpg') }}" alt="Users"></div>
                     <div class="msg-txt"><p>{{ $details->message }}</p></div>
                 </div>
                 <div class="sender-date"><p>{{ $conversation_details->name }} - {{ date('jS M, Y',strtotime($details->created_at)) }}</p></div>
@@ -81,3 +81,4 @@
 </div>
 
 @endsection
+
