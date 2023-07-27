@@ -823,8 +823,8 @@ padding-top: 0 !important;
 .inside-txt-blocks strong{display: block;padding-bottom: 5px;}
 .inside-txt .bold{font-weight: 600;}
 .inside-txt .small-button-color-red{color: var(--sitecolor);font-size: 16px;}
-.inside-txt ul { padding-left: 0; }
-.inside-txt ul li { float: left; width: 20%; list-style: none; }
+.inside-txt ul { padding-left: 0 !important; }
+.inside-txt ul li { /*float: left; width: 20%;*/ list-style: none; }
 .inside-txt ul li a { font-size: 16px; padding: 15px 0; color: var(--black); }
 .inside-txt ul li a:hover{color: var(--sitecolor);}
 
