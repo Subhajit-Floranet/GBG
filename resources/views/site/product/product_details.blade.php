@@ -62,9 +62,9 @@ $meta_title = $product_details->meta_title;
     @endforeach
 </ul>
     <!-----------------------------------BREAD CRUMB ENDS HERE-------------->
-<div class="product-details">
+<div class="product-details flex">
     <div class="product-image">
-        <div class="details-img">
+        
         @if( $product_details->default_product_image != null )
             @if(file_exists(public_path('/uploaded/product/'.$product_details->default_product_image['name'])))
             @php $default_image = URL::to('/') . '/uploaded/product/'.$product_details->default_product_image['name']; @endphp
@@ -77,7 +77,7 @@ $meta_title = $product_details->meta_title;
             @php $default_image = URL::to('/').config('global.no_image');@endphp
             <img src="{{ $default_image }}" alt="{{ $product_details->alt_key }}">
         @endif
-        </div>
+       
     </div>
     <div class="product-description @if ( $product_details->has_attribute == 'Y' ) product-description-968 @endif" >
         {{-- <form name="delivery_details" id="delivery_details" method="POST">
@@ -183,7 +183,7 @@ $meta_title = $product_details->meta_title;
                                 <label class="option-container">
                                     <input type="radio" name="optradio" class="pro_attr" data-attrid="{{ $attribute->id }}" <?php if($d==1)echo 'checked="checked"'; ?> autocomplete="off">
                                     <span class="checkmark"></span>
-                                    <div class="option-qty-price">
+                                    <div class="option-qty-price flex">
                                         <span class="option-qty">
                                             {{ $attribute->title }} 
                                         </span>

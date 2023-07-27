@@ -381,17 +381,21 @@ li.alpha_index a:hover {color: #203060;/* text-decoration: underline; */}
 .checkout_agreed_error {position: absolute; margin-top: 1.5%; margin-left: -1%; font-size: 0.8em; color: red;}
 #payment-buttons {width: 300px; margin: 0 auto;}
 
+/*custom radio in product details*/
+.option-container input { position: absolute; opacity: 0; cursor: pointer; }
+.checkmark { position: absolute; top: 7px; left: -10px; height: 20px; width: 20px; background-color: #eee; border-radius: 50%; }
+.option-container:hover input ~ .checkmark { background-color: #ccc; }
+.option-container input:checked ~ .checkmark { background-color: var(--deepcol); }
+.checkmark:after { content: ""; position: absolute; display: none; }
+.option-container input:checked ~ .checkmark:after { display: block; }
+.option-container  .checkmark:after { top: 6px; left: 6px; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+
+
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
 /* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+input[type=number] { -moz-appearance: textfield; }
 
 fieldset input[type="date"], fieldset input[type="number"], fieldset input[type="password"], fieldset input[type="text"], fieldset select, fieldset textarea {
     padding: 5px;  width: 96.5%!important; border: 1px solid #ccc; font-size: inherit; font-family: inherit; color: inherit; outline: 0; color: #000!important; height: 40px;margin-top: 7px;}

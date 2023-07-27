@@ -168,7 +168,7 @@ class HomeController extends Controller
         }
     }
 
-    public function disclaimer($param = null, Request $request) {
+    public function disclaimer(Request $request) {
         $page_details = Cms::where([
                                     'is_block'  => 'N',
                                     'id'        => 10
@@ -195,7 +195,7 @@ class HomeController extends Controller
         return view('site.sitemap')->with(['cities'=>$cities]);
     }
 
-    public function payment($param = null, Request $request) {
+    public function payment( Request $request) {
         $page_details = Cms::where([
                                     'is_block'  => 'N',
                                     'id'        => 18
