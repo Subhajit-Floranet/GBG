@@ -77,7 +77,7 @@ class HomeController extends Controller
         }
     }
 
-    public function termsAndConditions($param = null, Request $request) {
+    public function termsAndConditions(Request $request) {
         $page_details = Cms::where([
                                     'is_block'  => 'N',
                                     'id'        => 2
@@ -90,7 +90,7 @@ class HomeController extends Controller
         }
     }
 
-    public function aboutUs($param = null, Request $request) {
+    public function aboutUs( Request $request) {
         //dd($request);
         $page_details = Cms::where([
                                     'is_block'  => 'N',
@@ -104,7 +104,7 @@ class HomeController extends Controller
         }
     }
 
-    public function privacyPolicy($param = null, Request $request) {
+    public function privacyPolicy( Request $request) {
         $page_details = Cms::where([
                                     'is_block'  => 'N',
                                     'id'        => 3
@@ -142,7 +142,7 @@ class HomeController extends Controller
         }
     }
 
-    public function faq($param = null, Request $request) {
+    public function faq( Request $request) {
         $page_details = Cms::where([
                                     'is_block'  => 'N',
                                     'id'        => 6
@@ -181,14 +181,14 @@ class HomeController extends Controller
         }
     }
 
-    public function deliveryLocations($param = null, Request $request) {
+    public function deliveryLocations( Request $request) {
         $cities = City::where(['is_block'=>'N', 'check_other' => 'N'])->select('id','name','slug')->orderBy('name', 'ASC')->get();
         
         $page_details = Cms::where(['is_block'=>'N','slug'=>'delivery-locations'])->first();
         return view('site.deliverylocations')->with(['cities'=>$cities, 'page_details'=>$page_details]);
     }
 
-    public function sitemap($param = null, Request $request) {
+    public function sitemap( Request $request) {
         
         $cities = City::where('is_block', 'N')->select('id','name','slug')->orderBy('name', 'ASC')->get();
         
