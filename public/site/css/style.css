@@ -209,7 +209,7 @@ button, input, optgroup, select, textarea { font-family: inherit; line-height: 1
 .form-group input ,.form-group textarea{ padding: 0.8rem 0 0.8rem 0.7rem; font-family: 'Montserrat', sans-serif; border-radius: 5px; border: 1px solid darkgray; }
 .form-group select { font-size: 1rem; border-radius: 5px; font-family: 'Montserrat', sans-serif; padding: 0.6rem 0.5rem; color: var(--black); }
 
-.sign-up-btn button { width: 250px; display: block; padding: 0.5rem 0; font-size: 1.2rem; margin: 1rem auto; border-radius: 50px; border: 2px solidvar(--sitecolor)!important; background-color: var(--sitecolor)!important; color: white; }
+.sign-up-btn button { width: 250px; display: block; padding: 0.5rem 0; font-size: 1.2rem; margin: 1rem auto; border-radius: 50px; border: 2px solid var(--sitecolor)!important; background-color: var(--sitecolor)!important; color: white; cursor: pointer;}
 .sign-up-social, .log-in-social { margin-top: 2rem; text-align: center; }
 .sign-up-social p, .log-in-social p {padding: 1rem 0;}
 .fb-n-gle { width: 90%; margin: 0 auto; justify-content: center; }
@@ -227,7 +227,7 @@ button, input, optgroup, select, textarea { font-family: inherit; line-height: 1
 .log-in-social { margin-top: 2rem; text-align: center; }
 .log-in-social hr { border: 0; border-top: 1px solid rgba(0,0,0,.1); }
 .log-in-social p {padding: 1rem 0;}
-.log-in-social p a{color: var(--sitecolor); font-weight: 600;}
+.log-in-social p a,.sign-up-social p a{color: var(--sitecolor); font-weight: 600;}
 .fb-n-gle { width: 90%; margin: 0 auto; justify-content: center; }
 .fb-n-gle a {margin: 1rem;}
 .log-in-social p {padding: 1rem 0;}
