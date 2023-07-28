@@ -170,7 +170,7 @@ $meta_title = $product_details->meta_title;
 
                 
             </div>   
-            <div class="price-n-qty " >
+            <div class="price-n-qty @if ( $product_details->has_attribute == 'N' ) no-display @endif" >
                     @php $product_attr_id = 0; @endphp
                     @if ( $product_details->has_attribute == 'Y' )
                         <div>
@@ -484,11 +484,11 @@ $meta_title = $product_details->meta_title;
     		<!-- <i class="fa-solid fa-xmark" href="javascript: void(0);" id="gift_popup_close"></i> -->
     		<!--onClick="remove_modal()"-->
     	</div>
-    	<div class="modal-body flex">
+    	<div class="modal-body ">
     		<input type="hidden" name="giftaddon_ids" id="giftaddon_ids" value="">
     		@if ( count($all_extra_addons) > 0 )
                 @foreach ( $all_extra_addons as $product_extra )
-                <label>
+               
     				<div class="modal-product">
                         
     					<div class="md-up">
@@ -512,7 +512,7 @@ $meta_title = $product_details->meta_title;
     						<input type="checkbox" class="giftaddon" value="{{ $product_extra->id }}" autocomplete="off">	
     					</div>
     				</div>
-                </label>
+                
     			@endforeach
     		@endif	
     	</div>

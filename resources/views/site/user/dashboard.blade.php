@@ -1,10 +1,204 @@
 @extends('layouts.site.app')
 
 @section('content')
+<style>
+	:root{
+		--editcol:#686565;
+	}
+	.dashboard-container{display:flex;width:90%;margin:40px auto 0;    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;padding: 30px;}
+	.dashboard-menu ul li{list-style: none;padding: 10px; font-size: 18px; color: #5e5e5e;cursor: pointer;}
+	.dashboard-menu ul li.active{    background-color: #e0e1e078; border-radius: 40px; color: #81a140;}
+	.dashboard-content{    padding: 10px 30px 30px; width: 100%;border-left: 1px solid #ccc; margin-left: 20px;}
+	.profile-head{    font-size: 25px; color: var(--sitecolor);}
+	.box-design{padding: 10px; border: 1px solid #ccc; border-radius: 7px;    margin-bottom: 30px;}
+	.profile-picture{    display: flex; align-items: center;  margin: 30px 0;}
+	.profile-img{margin-right:20px;	}
+	.profile-img i{background: #858282; border-radius: 50%; padding: 10px 13px; font-size: 30px; color: #fff;}
 
+	.profile-container{display: none;} 
+	.profile-container.profile-active{display: block;}
+	.personal-info{font-size: 20px; display: flex; justify-content: space-between;}
+	.edit-btn{    color: var(--editcol);cursor: pointer;}
+	.info-container{display:flex;padding: 10px 0;}
+	.marg-top{    margin-top: 15px;}
+	.profile-title{    margin-right: 30px;color: #857e7e; font-size: 17px;}
+</style>
 
+<section class="dashboard-container ">
+	<div class="dashboard-menu">
+		<ul>
+			<li class="menus active" data-rel="tab1">Profile</li>
+			<li class="menus" data-rel="tab2">Password</li>
+			<li class="menus" data-rel="tab3">Address</li>
+			<li class="menus" data-rel="tab4">Orders</li>
+		</ul>
+	</div>
+	<div class="dashboard-content">
+		<div class="profile-container profile-active " >
+			<div class="profile-head">My Profile</div>
+			<div class="profile-picture box-design">
+				<div class="profile-img" ><i class="fa-solid fa-user"></i></div>
+				<div class="profile-det">
+					<div>{{ $user_data->name }}</div>
+				</div>
+			</div>
+			<div class=" box-design">
+				<div class="personal-info">
+					<div>Personal Information</div>
+					<div class="edit-btn" id="author_bio_wrap_toggle"><i class="fa-solid fa-pen-to-square"></i></div>
+				</div>
+				<div class="info-container marg-top">
+					<div class="profile-title">Name :</div>
+					<div class="profile-data" id="edit_name">{{ $user_data->name }}</div>
+				</div>
+				<div class="info-container">
+					<div class="profile-title">Birthday :</div>
+					<div class="profile-data" id="edit_dob">@if ($user_data->dob != '0000-00-00' && $user_data->dob != null){{ date('M j, Y',strtotime($user_data->dob)) }} @else {{ 'N/A' }}@endif</div>
+				</div>
+				<div class="info-container">
+					<div class="profile-title">Mobile :</div>
+					<div class="profile-data" id="edit_mobile">@if ($user_data->mobile){{ $user_data->mobile }} @else {{ 'N/A' }}@endif</div>
+				</div>
+				<div class="info-container">
+					<div class="profile-title">Email :</div>
+					<div class="profile-data" id="edit_mobile">{{ $user_data->email }}</div>
+				</div>
+			</div>
+			<div class=" box-design" id="author_bio_wrap" style="display: none;">
+						<div class="col-lg-6">
+							<div class="user-interface">
+							{{Form::open(['files' => true, 'id' => 'update_profile_information'])}}
+							<fieldset>
+								<div class="row" id="loginwithoutid">
+									<div class="form-group">
+										<label>Name :</label>
+										{!! Form::text('name', $user_data->name, array('required', 'class'=>'form-control','placeholder'=>"Name", 'id' => 'name')) !!}
+									</div>
+									<div class="form-group">
+										<label>Birthday :</label>
+										<!-- <input type="date" placeholder="Birthday" class="form-control"> -->
+										@php if($user_data->dob != '0000-00-00' && $user_data->dob != null)$dob = date('Y/m/d', strtotime($user_data->dob)); else $dob = ''; @endphp
+                                        {!! Form::text('dob', $dob, array('required', 'class'=>'form-control', 'id' => 'dob', 'autocomplete' => 'off', 'data-provide' => 'datepicker', 'data-date-format' => 'yyyy/mm/dd', 'data-date-end-date' => '0d' )) !!}
+									</div>
+									<div class="form-group">
+										<label>Mobile No. :</label>
+										{!! Form::text('mobile', $user_data->mobile, array('required', 'class'=>'form-control', 'id' => 'mobile')) !!}</span>
+									</div>
+									<div class="form-group">
+										<label>Email ID :</label>
+										<input type="text" name="" class="form-control" value="{{ $user_data->email }}" readonly />
+									</div>
+									<div class="d-flex justify-content-around button-container">
+										<button type="submit" class="btn button-nfjp">Save</button>
+                                        <button type="button" id="cancel_edit_profile" class="btn button-nfjp-cancel">Cancel</button>
+									</div>
+								</div>
+							</fieldset>
+							</form>
+							</form>
+							</div>
+						</div>
+					</div>
+		</div>
+		<div class="profile-container" >
+			<div class="profile-head">Change Password</div>		
+			<div class="marg-top box-design">
+				<div class="col-lg-6">
+					<div class="user-interface">
+					{{Form::open(['files' => true, 'id' => 'change_password_form'])}}
+					<fieldset>
+						<div class="row" id="loginwithoutid">
+							<div class="form-group">
+								<label>New Password :</label>
+								{!! Form::password('password', array('required','placeholder'=>"xxxxxx", 'class'=>'form-control', 'id' => 'cp_password')) !!}
+							</div>
+							<div class="form-group">
+								<label>Retype New Password :</label>
+								{!! Form::password('confirm_password', array('required','placeholder'=>"xxxxxx", 'class'=>'form-control', 'id' => 'cp_confirm_password')) !!}
+							</div>
+							<div class="row rows button-container">
+								<button type="submit" class="btn button-nfjp">Change Password</button>
+							</div>
+						</div>
+					</fieldset>
+					{{ Form::close() }}
 
-<section class="dashboard">
+					<div class="row"><div class="edit-pass-msg"></div></div>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="profile-container" >
+			<div class="profile-head">Address List</div>
+			<div class="marg-top box-design">
+				<div class="col-lg-6 my-address-container" id="address_data_div"></div>
+					
+				<div class="col-lg-6 new-address-add-open" id="new_address_add_form" style="display:none;">
+					<h3>Add New Address</h3>
+					<div class="user-interface">
+						{{ Form::open(['files' => true, 'class'=>"form-horizontal", 'route' => 'users.add-address', 'id' => 'add_address_form']) }}
+						<fieldset>
+							<div class="row" id="loginwithoutid">
+								<div class="form-group">
+									<label>Name :</label>
+									{!! Form::text('name', $user_data->name, array('required','placeholder'=>"Name", 'class'=>'form-control', 'id' => 'name_add')) !!}
+								</div>
+								<div class="form-group">
+									<label>Address :</label>
+									{!! Form::text('address', null, array('required', 'placeholder'=>"Address*", 'class'=>'form-control', 'id' => 'address_add', 'autocomplete' => 'off')) !!}
+								</div>
+								<div class="form-group">
+									<label>Pincode :</label>
+									{!! Form::text('pincode', null, array('required', 'id'=>"pincode_add",'placeholder'=>"Pincode", 'class'=>'form-control', 'autocomplete' => 'off')) !!}
+								</div>
+								<div class="form-group">
+									<label>State/Province :</label>
+									{!! Form::text('state_name', null, array('required', 'placeholder' => 'State/Province', 'class'=>'form-control', 'id' => 'state_id_add', 'autocomplete' => 'off')) !!}
+								</div>
+								<div class="form-group">
+									<label>Country :</label>
+									<select id="country_id_add" class="form-control selectpicker" name="country_id" required="true">
+										<option value="">Select</option>
+										<?php foreach ($country_list as $key => $value) { ?>
+											<option value="<?php echo $value['id'];?>"><?php echo $value['name'];?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>City :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									@php $cityList = App\Http\Helper::getCities(80); @endphp
+									<select id="city_id_add" class="form-control selectpicker" name="city_id" required="true">
+										<option value="">Select</option>
+										@foreach($cityList as $city)
+											<option value="<?php echo $city->id;?>"><?php echo $city->name;?></option>
+										@endforeach
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Phone No :</label>
+									{!! Form::text('mobile', $user_data->mobile, array('required', 'class'=>'form-control','placeholder'=>"Mobile", 'id' => 'mobile_add', 'autocomplete' => 'off')) !!}
+								</div>
+								<div class="d-flex justify-content-around button-container">
+									
+										<button type="submit" class="btn button-nfjp new-address-add-close">Save</button>
+										<button type="button" id="cancel_save_address" class="btn button-nfjp-cancel">Cancel</button>
+								</div>
+								
+							</div>
+						</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="profile-container" >
+			<div id="all_orders"></div>
+		</div>
+	</div>
+</section>
+
+<section class="dashboard" style="display:none;">
     <div class="dashboard-body">
         <h2>Welcome! {{ $user_data->name }}</h2>
 
@@ -12,10 +206,10 @@
 		
 			<!---------------------Dashboard Start-------------------------->
 			<ul class="tabss">
-			<li class="activess" rel="tab1">Personal Information</li>
-			<li rel="tab2">Change Password</li>
-			<li rel="tab3">My Address</li>
-			<li rel="tab4">My Orders</li>
+			<li class="activess" rel="tab1"><i class="fa-solid fa-user"></i>Personal Information</li>
+			<li rel="tab2"><i class="fa-solid fa-key"></i>Change Password</li>
+			<li rel="tab3"><i class="fa-solid fa-address-book"></i>My Address</li>
+			<li rel="tab4"><i class="fa-solid fa-gift"></i>My Orders</li>
 			</ul>
 			<div class="tab_container">
 				<h3 class="d_activess tab_drawer_heading" rel="tab1">Personal Information</h3>
@@ -38,7 +232,7 @@
 						<div class="col-12 col-sm-9 col-md-9 col-lg-10">{{ $user_data->email }}</div>
 					</div>
 					<div class="row rows button-container">
-						<button class="btn button-nfjp" id="author_bio_wrap_toggle">Edit Your Details</button>
+						<!-- <button class="btn button-nfjp" id="author_bio_wrap_toggle">Edit Your Details</button> -->
 					</div>
 
 					<div class="row"><div class="edit-form-msg"></div></div>
@@ -365,13 +559,13 @@
     </div>
 </section>
 
-<script language="javascript">
-
-$(".tab_drawer_heading").click(function(){
-        var activeTab = $(this).attr("rel");
+<script>
+jQuery(function($){
+  $('.menus').click(function(){
+	var activeTab = $(this).data("rel");
         //alert(activeTab);
-        //For address tab click
-        if(activeTab == 'tab3'){
+
+		if(activeTab == 'tab3'){
             $('#all_addresses').addClass('loading');
             $('#address_data_div').show();
             $.ajaxSetup({
@@ -390,9 +584,8 @@ $(".tab_drawer_heading").click(function(){
                     }, 500);
                 }
             });
-        }
-        //For my orders tab click
-	    else if(activeTab == 'tab4'){
+        }	
+		else if(activeTab == 'tab4'){
             $('#all_orders').addClass('loading');
             $.ajaxSetup({
                 headers: {
@@ -411,78 +604,156 @@ $(".tab_drawer_heading").click(function(){
                 }
             });
         }
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+    $('.profile-active').removeClass('profile-active');
+    const index = $(this).index();
+    $('.profile-container').eq(index).addClass('profile-active');
+	});
+
+	
+        // //For address tab click
         
-    })
-
-$(".tab_content").hide();
-$(".tab_content:first").show();
-$("ul.tabss li").click(function () {
-  $(".tab_content").hide();
-  var activessTab = $(this).attr("rel");
-  //alert(activessTab);
-  //For address tab click
-    if(activessTab == 'tab3'){
-        $('#all_addresses').addClass('loading');
-        $('#address_data_div').show();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: '{{ route("users.myAddresses") }}',
-            method: 'POST',
-            dataType: 'HTML',
-            success: function(response_address) {
-                setTimeout(function(){
-                    $('#address_data_div').html(response_address);
-                    $('#all_addresses').removeClass('loading');
-                }, 500);
-            }
-        });
-    }
-    //For my orders tab click
-    else if(activessTab == 'tab4'){
-        $('#all_orders').addClass('loading');
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: '{{ route("users.my-orders") }}',
-            method: 'POST',
-            dataType: 'HTML',
-            success: function(response_orders) {
-                setTimeout(function(){
-                    $('#all_orders').html(response_orders);
-                    $('#all_orders').removeClass('loading');
-                }, 500);
-            }
-        });
-    }
+  });
 
 
-  $("#" + activessTab).fadeIn();
+</script>
 
-  $("ul.tabss li").removeClass("activess");
-  $(this).addClass("activess");
 
-  $(".tab_drawer_heading").removeClass("d_activess");
-  $(".tab_drawer_heading[rel^='" + activessTab + "']").addClass("d_activess");
-});
 
-$(".tab_drawer_heading").click(function () {
-  $(".tab_content").hide();
-  //alert("hello");
-  var d_activessTab = $(this).attr("rel");
-  $("#" + d_activessTab).fadeIn();
-  $(".tab_drawer_heading").removeClass("d_activess");
-  $(this).addClass("d_activess");
-  $("ul.tabss li").removeClass("activess");
-  $("ul.tabss li[rel^='" + d_activessTab + "']").addClass("activess");
-});
-$('ul.tabss li').last().addClass("tab_last");
+
+
+
+
+
+
+
+<script language="javascript">
+
+// $(".tab_drawer_heading").click(function(){
+//         var activeTab = $(this).attr("rel");
+//         //alert(activeTab);
+//         //For address tab click
+//         if(activeTab == 'tab3'){
+//             $('#all_addresses').addClass('loading');
+//             $('#address_data_div').show();
+//             $.ajaxSetup({
+//                 headers: {
+//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                 }
+//             });
+//             $.ajax({
+//                 url: '{{ route("users.myAddresses") }}',
+//                 method: 'POST',
+//                 dataType: 'HTML',
+//                 success: function(response_address) {
+//                     setTimeout(function(){
+//                         $('#address_data_div').html(response_address);
+//                         $('#all_addresses').removeClass('loading');
+//                     }, 500);
+//                 }
+//             });
+//         }
+//         //For my orders tab click
+// 	    else if(activeTab == 'tab4'){
+//             $('#all_orders').addClass('loading');
+//             $.ajaxSetup({
+//                 headers: {
+//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                 }
+//             });
+//             $.ajax({
+//                 url: '{{ route("users.my-orders") }}',
+//                 method: 'POST',
+//                 dataType: 'HTML',
+//                 success: function(response_orders) {
+//                     setTimeout(function(){
+//                         $('#all_orders').html(response_orders);
+//                         $('#all_orders').removeClass('loading');
+//                     }, 500);
+//                 }
+//             });
+//         }
+        
+//     })
+
+// $(".tab_content").hide();
+// $(".tab_content:first").show();
+// $("ul.tabss li").click(function () {
+//   $(".tab_content").hide();
+//   var activessTab = $(this).attr("rel");
+//   //alert(activessTab);
+//   //For address tab click
+//     if(activessTab == 'tab3'){
+//         $('#all_addresses').addClass('loading');
+//         $('#address_data_div').show();
+//         $.ajaxSetup({
+//             headers: {
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//             }
+//         });
+//         $.ajax({
+//             url: '{{ route("users.myAddresses") }}',
+//             method: 'POST',
+//             dataType: 'HTML',
+//             success: function(response_address) {
+//                 setTimeout(function(){
+//                     $('#address_data_div').html(response_address);
+//                     $('#all_addresses').removeClass('loading');
+//                 }, 500);
+//             }
+//         });
+//     }
+//     //For my orders tab click
+//     else if(activessTab == 'tab4'){
+//         $('#all_orders').addClass('loading');
+//         $.ajaxSetup({
+//             headers: {
+//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//             }
+//         });
+//         $.ajax({
+//             url: '{{ route("users.my-orders") }}',
+//             method: 'POST',
+//             dataType: 'HTML',
+//             success: function(response_orders) {
+//                 setTimeout(function(){
+//                     $('#all_orders').html(response_orders);
+//                     $('#all_orders').removeClass('loading');
+//                 }, 500);
+//             }
+//         });
+//     }
+
+
+//   $("#" + activessTab).fadeIn();
+
+//   $("ul.tabss li").removeClass("activess");
+//   $(this).addClass("activess");
+
+//   $(".tab_drawer_heading").removeClass("d_activess");
+//   $(".tab_drawer_heading[rel^='" + activessTab + "']").addClass("d_activess");
+// });
+
+// $(".tab_drawer_heading").click(function () {
+//   $(".tab_content").hide();
+//   //alert("hello");
+//   var d_activessTab = $(this).attr("rel");
+//   $("#" + d_activessTab).fadeIn();
+//   $(".tab_drawer_heading").removeClass("d_activess");
+//   $(this).addClass("d_activess");
+//   $("ul.tabss li").removeClass("activess");
+//   $("ul.tabss li[rel^='" + d_activessTab + "']").addClass("activess");
+// });
+// $('ul.tabss li').last().addClass("tab_last");
+
+
+
+
+
+
+
+
 
 // $(".my-info-editor").hide();
 // $(".my-info").click(function() {
@@ -510,9 +781,9 @@ jQuery(document).ready(function($){
  	$("#author_bio_wrap_toggle").click(function(){	
 		$("#author_bio_wrap").slideToggle( "slow");	
 	 	if ($("#author_bio_wrap_toggle").text() == "Edit Your Details"){	
-			$("#author_bio_wrap_toggle").html("Edit Your Details")
+			// $("#author_bio_wrap_toggle").html("Edit Your Details")
 	 	}else{	
-			$("#author_bio_wrap_toggle").text("Edit Your Details")
+			// $("#author_bio_wrap_toggle").text("Edit Your Details")
 	 	}	
  	});
 });
