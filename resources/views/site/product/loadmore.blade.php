@@ -71,7 +71,7 @@ $reviewRating = App\Http\Helper::getProductReviewNRating($product->id);
         </div>
     @endif
     
-    <div class="msz-del">
+    <div class="msz-del @if($reviewRating['rating'] > 0 ) rating-padding @endif">
         Earlist Delivery:{{  $earliestDelivery }}
     </div>
     <div class="btn-price flex">
