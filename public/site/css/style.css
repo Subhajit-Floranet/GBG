@@ -768,7 +768,7 @@ padding-top: 0 !important;
 
 /*contact us*/
 .no-flex{display: block !important;}
-.contact-container{box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;display: flex;flex-wrap: wrap;width: 60%;margin: 0 auto;}
+.contact-container{box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;display: flex;flex-wrap: wrap;width: 60%;margin: 0 auto;width: 80%;}
 .contact-lt{padding: 50px;}
 .contact-rt{padding: 40px;}
 .contact-lt{width: 70%;}
@@ -793,7 +793,7 @@ padding-top: 0 !important;
 .con-field button[type="submit"],.track-container button{    padding: 10px 50px; border-radius: 5px; border: 1px solid; color: #fff;background: var(--sitecolor);font-size: 17px;cursor: pointer;}
 .flex-end{justify-content: flex-end;}
 .bulk{    padding: 40px 10px; text-align: center; background: #fff; border-radius: 15px; font-weight: 600; font-size: 20px;}
-.bulk input[type="button"]{    margin-top: 10px; padding: 10px; border-radius: 5px; border: 1px solid var(--sitecolor);color: #fff;background: var(--sitecolor);}
+.bulk input[type="button"]{    margin-top: 10px; padding: 10px; border-radius: 5px; border: 1px solid var(--sitecolor);color: #fff;background: var(--sitecolor);cursor: pointer;}
 .bulk-add-con{    padding-top: 50px; line-height: 40px; font-weight: 600;}
 .bulk-add-head{font-size: 25px;}
 
@@ -1068,7 +1068,7 @@ height: 550px;
 	.bst-inner a {font-size: 21px} .sst-bold {font-size: 16px} .sbc-box h3,.sbp-box h3,.sbr-box h3,.sbrb-box h3 {padding-top: 15px} 
 	.con-sec h2 {font-size: 1.4rem} .con-sec p {font-size: 1.1rem} .f-categories p {font-size: 1.1rem} .f-categories ul li a {font-size: .9rem}
 	.categories ul li { font-size: 15px;}
-	.contact-container{width: 80% !important;}
+	/* .contact-container{width: 80% !important;} */
 	.mem-left { width: 30%; }
 	.mem-right { width: 68%; }
 	.isf-name-prefix, .isf-phone-prefix { width: 19% !important; }

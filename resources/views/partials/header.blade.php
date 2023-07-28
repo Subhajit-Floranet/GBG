@@ -27,7 +27,7 @@
         </div>
 
         <div class="head2-right flex">
-            <a href="" class="head2-options" aria-label="contact us">
+            <a href="{{ route('contact-us') }}" class="head2-options" aria-label="contact us">
                 <p>Contact Us</p>
             </a>
             @if(Auth::user())
