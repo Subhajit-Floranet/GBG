@@ -21,35 +21,6 @@ $(".oc-menu").click(function(){
 	$("#oc-mega-menu").toggle();	
 	$(".oc-menu").toggleClass("oc-mrgn");	
 });
-/** search script */
-$('.serbtnnew').on('click', function() {
-    if ($.trim($('#searchKey').val())  === '') {
-        $("#searchAlert").css('display','block');
-        $("#searchAlert").html("<i class='fa fa-exclamation-triangle'></i> Please Search by flowers, cakes, gifts etc.");
-        setTimeout(function(){ 
-        $("#searchAlert").html("");
-        document.getElementById('searchAlert').style.display = 'none' 
-        }, 3000);
-        return false;
-    }else if($.trim($('#searchKey').val()).length < 3){
-        $("#searchAlert").css('display','block');
-        $("#searchAlert").html("<i class='fa fa-exclamation-triangle'></i> Please write minimum 3 characters");
-        setTimeout(function(){ 
-        $("#searchAlert").html("");
-        document.getElementById('searchAlert').style.display = 'none' 
-        }, 3000);
-        return false;
-    } else {
-        url = "search-keyword.asp?keyword="+$.trim($('#searchKey').val());
-        window.location.href = url;
-    }
-});
-
-$('#searchKey').keypress(function(e){
-    if(e.which == 13){
-        $('.serbtnnew').click();
-    }
-});
 
 
 $(".click-search").click(function(event){

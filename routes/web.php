@@ -168,6 +168,10 @@ Route::any('/loadMore', [CategoryController::class, 'loadMore'])->name('loadMore
 Route::post('/reviewpost', [ProductController::class, 'reviewpost'])->name('reviewpost');
 Route::any('/attribute-details', [ProductController::class, 'getAttributeDetails'])->name('attribute-details');
 
+/* Search by city */
+Route::get('/search-by-keyword', [ProductController::class, 'searchByKeyword'])->name('search-by-keyword');
+Route::any('/loadMoreSearchByKeyword', [ProductController::class, 'loadMoreSearchByKeyword'])->name('loadMoreSearchByKeyword');
+
 Route::any('/gift-addon-add-to-cart', [CartController::class, 'giftAddonAddToCart'])->name('gift-addon-add-to-cart');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart');

@@ -306,4 +306,9 @@ class Helper{
 
         return $result;
     }
+
+    public static function getAllCountries(){
+        $country=Country::orderBy('name')->get();
+        return $country;
+    }
 }

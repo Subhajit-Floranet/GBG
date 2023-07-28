@@ -40,7 +40,9 @@ class UsersController extends RootController
     public function register(Request $request) {
         $users = new User;
         
-        if($request->isMethod('POST')){            
+        if($request->isMethod('POST')){   
+            
+            //dd($request);
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
@@ -57,7 +59,7 @@ class UsersController extends RootController
             if(strpos($request->name, 'http') !== false || strpos($request->name, '.com') !== false){
 
             } else {
-
+                //dd("hello");
                 if($users->create(['name'=>$request->name,'mobile'=>$request->mobile,'email'=>$request->email,'password'=>Hash::make($request->password),'countries_id'=>$request->countries_id,'email_token' => base64_encode($request->email).rand(1111,9999)])){
                     // if($request->mobile != null || $request->mobile != ''){
                     //     $phone_number = $request->mobile;
@@ -67,14 +69,14 @@ class UsersController extends RootController
 
                     if($request->email != null || $request->email != ''){
                         $get_user_data = User::Where('email',$request->email)->first();
-                        Mail::to($request->email)->queue(new EmailVerification($get_user_data));
+                        //Mail::to($request->email)->queue(new EmailVerification($get_user_data));
                         //BCC mail
-                          $bccemails = ['auto-update@germanflorist.de'];
-                          Mail::bcc($bccemails)->queue(new EmailVerification($get_user_data));
+                          //$bccemails = ['auto-update@germanflorist.de'];
+                          //Mail::bcc($bccemails)->queue(new EmailVerification($get_user_data));
                         //END BCC mail
                     }
                     $request->session()->flash('alert-success', 'Please check your email for an activation link.');
-                    return redirect()->route('site.login');
+                    return redirect()->route('users.login');
                 }else{
                     $request->session()->flash('alert-danger', 'Sorry! There was an unexpected error. Try again!'); 
                     return redirect()->back()->with($request->except(['_method', '_token']));

@@ -27,7 +27,7 @@
         </div>
 
         <div class="head2-right flex">
-            <a href="" class="head2-options" aria-label="contact us">
+            <a href="{{ route('contact-us') }}" class="head2-options" aria-label="contact us">
                 <p>Contact Us</p>
             </a>
             @if(Auth::user())
@@ -38,7 +38,7 @@
                     <i class="fa-solid fa-user" title="Dashboard"></i>
                     <!-- <i class="fa-solid fa-briefcase"></i> -->
                 </a>
-                <a href="" class="head2-options">
+                <a href="{{ route('order-status') }}" class="head2-options">
                     <i class="fa-solid fa-gift" alt="Track Order" aria-label="Track Order" title="Track Order"></i>
                     
                 </a>
@@ -46,11 +46,11 @@
                 <a href="{{ route('users.login') }}" class="head2-options" title="Login" aria-label="login">
                     <i class="fa-solid fa-user"></i>
                 </a>
-                <a href="" class="head2-options">
+                <a href="{{ route('order-status') }}" class="head2-options">
                     <i class="fa-solid fa-gift" alt="Track Order" aria-label="Track Order" title="Track Order"></i>
                 </a>
             @endif    
-            <a href="" class="head2-options">
+            <a href="{{ route('cart') }}" class="head2-options">
                 <i class="fa-solid fa-cart-shopping" alt="Shopping Cart" aria-label="cart" title="cart"></i>
             </a>
             
@@ -124,3 +124,36 @@
     <li  class="location-li"><a class="location-li-btn"href="sell-products.asp" title="Sale">Sale</a></li>
     </ul>
 </nav>
+
+<script>
+$('.serbtnnew').on('click', function() {
+    if ($.trim($('#searchKey').val())  === '') {
+        //alert('Please enter keywords, category etc');
+        $("#searchAlert").css('display','block');
+        $("#searchAlert").html("<i class='fa fa-exclamation-triangle'></i> Please Search by flowers, cakes, gifts etc.");
+        setTimeout(function(){ 
+        $("#searchAlert").html("");
+        document.getElementById('searchAlert').style.display = 'none' 
+        }, 3000);
+        return false;
+    }else if($.trim($('#searchKey').val()).length < 3){
+        $("#searchAlert").css('display','block');
+        $("#searchAlert").html("<i class='fa fa-exclamation-triangle'></i> Please write minimum 3 characters");
+        setTimeout(function(){ 
+        $("#searchAlert").html("");
+        document.getElementById('searchAlert').style.display = 'none' 
+        }, 3000);
+        return false;
+    } else {
+        url = "{{ url('/search-by-keyword') }}/?query="+$.trim($('#searchKey').val());
+        window.location.href = url;
+        //alert(url);
+    }
+});
+
+$('#searchKey').keypress(function(e){
+    if(e.which == 13){//Enter key pressed
+        $('.serbtnnew').click();//Trigger search button click event
+    }
+});
+</script>
