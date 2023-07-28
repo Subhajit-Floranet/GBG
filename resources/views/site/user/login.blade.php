@@ -50,7 +50,7 @@
                         <img src="https://www.nipponflorist.jp/images/site/button-google.png" alt="">
                     </a>
                 </div>
-                <p>New User, Click to <a href="{{ route('register') }}">Sign Up</a></p>
+                <p>New User, Click to <a href="{{ route('users.register') }}">Sign Up</a></p>
             </div>
         </form>
     </div>

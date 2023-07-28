@@ -209,7 +209,7 @@ class ProductController extends Controller
 
 
         $products =  DB::table('products')
-                        ->select('products.id', 'products.product_name', 'products.slug', 'products.price', 'products.actual_price', 'products.alt_key', 'products.delivery_delay_days', 'products.fnid')
+                        ->select('products.id', 'products.product_name', 'products.slug', 'products.price', 'products.actual_price', 'products.alt_key', 'products.delivery_delay_days', 'products.fnid', 'products.has_attribute')
                         ->where('products.is_block','=', 'N')
                         ->where(function($q) use ($last_param) {
                             $q->where([['products.product_name','like',"%$last_param%"]])
@@ -262,7 +262,7 @@ class ProductController extends Controller
         
 
         $products =  DB::table('products')
-                        ->select('products.id', 'products.product_name', 'products.slug', 'products.price', 'products.actual_price', 'products.alt_key', 'products.delivery_delay_days', 'products.fnid')
+                        ->select('products.id', 'products.product_name', 'products.slug', 'products.price', 'products.actual_price', 'products.alt_key', 'products.delivery_delay_days', 'products.fnid', 'products.has_attribute')
                         ->where('products.is_block','=', 'N')
                         ->where(function($q) use ($last_param) {
                             $q->where([['products.product_name','like',"%$last_param%"]])
