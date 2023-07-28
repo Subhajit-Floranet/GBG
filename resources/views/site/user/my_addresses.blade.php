@@ -1,9 +1,13 @@
 @forelse($address_list as $address)
+
 <address class="my-address" id="my_address_{{$address->id}}">
-	<p class="name"><b>{{ $address->name }}</b>
-        <a href="javascript:void(0)" data-href="{{ route('users.edit-address', [  App\Http\Helper::flower_encrypt_decrypt($address->id,'e')]) }}" class="address-editor-open address_edit_btn"><i class="fa-solid fa-edit" style="color:darkgreen;"></i></a> 
-        <a href="javascript:void(0)" onclick="delete_address_my_account({{$address->id}});"><i class="fa-solid fa-trash" style="color:red;"></i></a>
-    </p>
+	<div class="name flex">
+        <b>{{ $address->name }}</b>
+        <div>
+            <a href="javascript:void(0)" data-href="{{ route('users.edit-address', [  App\Http\Helper::flower_encrypt_decrypt($address->id,'e')]) }}" class="address-editor-open address_edit_btn "><i class="fa-solid fa-edit" ></i></a> 
+            <a href="javascript:void(0)" onclick="delete_address_my_account({{$address->id}});"><i class="fa-solid fa-trash" style="color:#972a2a;"></i></a>
+        </div>
+    </div>
 	<div class="row myp-info">
 		<div class="col-12 col-sm-3 col-md-3 col-lg-2">Address :</div>
 		<div class="col-12 col-sm-9 col-md-9 col-lg-10">{{ $address->address }}</div>
@@ -21,6 +25,7 @@
 		<a href="javascript:void(0)" onclick="delete_address_my_account({{$address->id}});"><i class="fa-solid fa-trash"></i></a>
 	</i> -->
 </address>
+
 @empty
     No address found.
 @endforelse
