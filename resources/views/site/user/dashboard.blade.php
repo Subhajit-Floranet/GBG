@@ -1,28 +1,7 @@
 @extends('layouts.site.app')
 
 @section('content')
-<style>
-	:root{
-		--editcol:#686565;
-	}
-	.dashboard-container{display:flex;width:90%;margin:40px auto 0;    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;padding: 30px;}
-	.dashboard-menu ul li{list-style: none;padding: 10px; font-size: 18px; color: #5e5e5e;cursor: pointer;}
-	.dashboard-menu ul li.active{    background-color: #e0e1e078; border-radius: 40px; color: #81a140;}
-	.dashboard-content{    padding: 10px 30px 30px; width: 100%;border-left: 1px solid #ccc; margin-left: 20px;}
-	.profile-head{    font-size: 25px; color: var(--sitecolor);}
-	.box-design{padding: 10px; border: 1px solid #ccc; border-radius: 7px;    margin-bottom: 30px;}
-	.profile-picture{    display: flex; align-items: center;  margin: 30px 0;}
-	.profile-img{margin-right:20px;	}
-	.profile-img i{background: #858282; border-radius: 50%; padding: 10px 13px; font-size: 30px; color: #fff;}
 
-	.profile-container{display: none;} 
-	.profile-container.profile-active{display: block;}
-	.personal-info{font-size: 20px; display: flex; justify-content: space-between;}
-	.edit-btn{    color: var(--editcol);cursor: pointer;}
-	.info-container{display:flex;padding: 10px 0;}
-	.marg-top{    margin-top: 15px;}
-	.profile-title{    margin-right: 30px;color: #857e7e; font-size: 17px;}
-</style>
 
 <section class="dashboard-container ">
 	<div class="dashboard-menu">
@@ -198,6 +177,7 @@
 	</div>
 </section>
 
+<!---old dashboard------>
 <section class="dashboard" style="display:none;">
     <div class="dashboard-body">
         <h2>Welcome! {{ $user_data->name }}</h2>
@@ -558,7 +538,10 @@
 
     </div>
 </section>
+<!---old dashboard------>
 
+
+<!---new script-->
 <script>
 jQuery(function($){
   $('.menus').click(function(){
@@ -618,7 +601,7 @@ jQuery(function($){
 
 
 </script>
-
+<!---new script-->
 
 
 
