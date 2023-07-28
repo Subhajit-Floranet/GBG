@@ -5,6 +5,7 @@
 	--deepestcol:#15be61;
 	--black:#000;
 	--grayrgba:rgb(201, 196, 196);
+	--catbantxt:#ef4b4b;
 }
 
 
@@ -242,13 +243,13 @@ button, input, optgroup, select, textarea { font-family: inherit; line-height: 1
 .cake-delivery1{ gap:1%; display: flex; flex-direction: row; flex-wrap: wrap; text-align: center; }
 .new-banner1{position: relative;}
 .new-banner1 img{ width: 100%; min-height: 250px; height: auto; }
-.pg-ban-txt{position: absolute; top: 50%; left: 60%; transform: translate(-50%, -50%); text-align: center;}
-.ban-bg-txt{color: #ef4b4b; font-size: 50px; font-weight: 400;}
+.pg-ban-txt{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;}
+.ban-bg-txt{color: var(--catbantxt); font-size:40px; font-weight: 400;}
 .ban-sm-txt{font-size: 27px;font-weight: 400;}
 
 /****************************PAGE DETAILS STYLE ENDS HERE********/
 /******************************SHOPING CART STARTS HERE*****************************/
-.shopping-cart-heading{ text-align: center; color:#ef4b4b; font-weight: 400; margin-bottom: 2%; font-size: 190%; }
+.shopping-cart-heading{ text-align: center; color:var(--catbantxt); font-weight: 400; margin-bottom: 2%; font-size: 190%; }
 .shopping-cart{ border-color: #e1e1e1; overflow-x: hidden; font-size: 1em; margin-left: 2%; margin-right: 2%; margin-top: 2%; }
 .shopping-cart table{ width: 100%; border-collapse: collapse; }
 table { display: table; box-sizing: border-box; text-indent: initial; border-spacing: 2px; border-color: gray; }
@@ -268,7 +269,7 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
 .cart-calculate td:nth-child(1) { font-weight: 400; width: 40%; }
 .cart-calculate td { border-color: #ccc !important; padding: 6px; border: 1px solid; font-size: 14px; }
 #footmenu{ clear: both; }
-.cart-calculate td.g-total { font-weight: bold; color: #ef4b4b; }
+.cart-calculate td.g-total { font-weight: bold; color: var(--catbantxt); }
 .cart-page { width: 100%; font-family: montserrat,sans-serif; margin-top: 2rem; }
 .cart-prd-img img { max-width: 100px; display: block; margin: 0 auto; }
 .cart-body { margin-top: 2rem; justify-content: space-evenly; }
@@ -443,7 +444,7 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
   .wine-link{ color:#FF0000; word-spacing: 1px; } 
   .text-6{ word-spacing: 30px; color: #666666; } 
   .owl-nav{ position: relative !important; } 
-  .my-carousel .owl-prev span{ position: absolute !important; top:-1317%; left: 0%; font-size: 50px; color:#fa5477; } .my-carousel .owl-next span{ position: absolute !important; top:-1317%; right: 0; font-size: 50px; color:#fa5477; } .text-5{ padding-bottom: 2%; } .item-desc{ text-align: center; font-size: 1em; line-height: 1.3em; padding: 0.5em 0; color: #565656; } .text-7{ padding-top: 2%; padding-bottom: 2%; } .description-title{ font-size: 1.2rem; color:#666666; padding-top: 2%; padding-bottom: 2%; } .carousel-head p{ color:#ef4b4b; text-align: center; font-size: 137%; margin-top: 2%; margin-bottom: 2%; } .my-row{ margin-top: 3% !important; } .item{ border:1px solid var(--black); margin-left: 4%; } .my-item{ width: 82% !important; padding: 2%; margin-left: 9.4%; border-radius: 15px; /*height: 444px;*/ } .my-item .item-img img{ height: auto; height: 300px; border:none; } .item-img{ height: 300px; } .description-text{ color:#666666; word-spacing: 3px; line-height: 1.5em; padding-bottom: 2%; } .declaration{ padding-top: 2%; color:#666666; font-size: 0.9em; }
+  .my-carousel .owl-prev span{ position: absolute !important; top:-1317%; left: 0%; font-size: 50px; color:#fa5477; } .my-carousel .owl-next span{ position: absolute !important; top:-1317%; right: 0; font-size: 50px; color:#fa5477; } .text-5{ padding-bottom: 2%; } .item-desc{ text-align: center; font-size: 1em; line-height: 1.3em; padding: 0.5em 0; color: #565656; } .text-7{ padding-top: 2%; padding-bottom: 2%; } .description-title{ font-size: 1.2rem; color:#666666; padding-top: 2%; padding-bottom: 2%; } .carousel-head p{ color:var(--catbantxt); text-align: center; font-size: 137%; margin-top: 2%; margin-bottom: 2%; } .my-row{ margin-top: 3% !important; } .item{ border:1px solid var(--black); margin-left: 4%; } .my-item{ width: 82% !important; padding: 2%; margin-left: 9.4%; border-radius: 15px; /*height: 444px;*/ } .my-item .item-img img{ height: auto; height: 300px; border:none; } .item-img{ height: 300px; } .description-text{ color:#666666; word-spacing: 3px; line-height: 1.5em; padding-bottom: 2%; } .declaration{ padding-top: 2%; color:#666666; font-size: 0.9em; }
 .testimonial-text ul li{ list-style-type: square; list-style-position: inside; line-height: 2em; padding-left: 1%; padding-right: 1%; color:#414141; font-size: 14px; }
 .testimonial-text{ margin-left: 1%; border:1px solid var(--deepestcol); margin-right: 1%; padding-top:1%; padding-bottom: 1%; }
 /*CUSTOMER REVIEW STARTS HERE*/
@@ -635,7 +636,7 @@ color:rgba(80, 20, 60, 0.9)!important;
 .ban-img{border-radius: 15px;}
 .faq-btn {  display: block; width: 153px; margin-bottom: 2%; border: none; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; outline: none; background:var(--sitecolor); color: #fff; padding: 5px 0; font-size: 15px; position: relative; cursor: pointer;}
 .faq-body { display: none; flex-direction: column; padding: 0 25px 0; position: relative; }
-.faq-cross { font-size: 15px; background:var(--sitecolor); color: #fff; border: none; outline: none; width: 24px; align-self: end; position: absolute; top: 32px;cursor: pointer; }
+.faq-cross { font-size: 15px; background:var(--sitecolor); color: #fff; border: none; outline: none; width: 24px; align-self: end; position: absolute; top: 10px;cursor: pointer; }
 .ban-info{top: 0;}
 .faq-text-div { margin-top: 30px;  font-size: 16px; }
 .faq-text-div p { height: 101px; overflow: auto; padding-right: 10px; }
@@ -997,11 +998,11 @@ height: 550px;
 	.first-banner-heading p{ font-size: 22px !important; }
 	.third-banner-heading p{ font-size: 13px !important; }
 }
-@media only screen and (min-width:876px) and (max-width:1125px){
+/* @media only screen and (min-width:876px) and (max-width:1125px){
 	.new-banner1 h1{ font-size: 19px; left: 71% !important; }
-}
+} */
 @media only screen and (min-width:768px) and (max-width:875px){
-	.new-banner1 h1{ font-size: 16px; left: 76% !important; }
+	.new-banner1 h1{ font-size: 25px; }
 }
 @media only screen and (min-width:801px) and (max-width:1067px){
 	.question1{ font-size: 65px; }
