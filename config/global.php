@@ -1,9 +1,8 @@
 <?php
 return[
-    'website_title'  	=> env('WEBSITE_TITLE','German Florist'),
-    //'website_url'  	 	=> env('WEBSITE_URL','https://www.germanflorist.de'),
-    //'website_url'  	 	=> env('WEBSITE_URL','http://phpstack-810541-2780260.cloudwaysapps.com/'),
+    'website_title'  	=> env('WEBSITE_TITLE','GiftBasketsGermany'),
     'website_url'       => env('WEBSITE_URL','https://www.germanflorist.de'),
+    'website_shortcode' => env('WEBSITE_SHORTCODE','GBG'),
     'website_tag_line'  => env('WEBSITE_TAG_LINE',''),
     'admin_email_id' 	=> env('ADMIN_EMAIL_ID','auto-update@germanflorist.de'),
     'support_email_id'  => env('SUPPORT_EMAIL_ID','support@germanflorist.de'),
