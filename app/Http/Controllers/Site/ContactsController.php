@@ -29,6 +29,8 @@ class ContactsController extends RootController
         $contact_us     = Cms::where([['id',7],['is_block','N']])->first();
         //$contact_type   = ContactType::where([['is_block','N']])->pluck('title','id');
 
+        $releated_type = $oid = $subject = '';
+
         if($request->isMethod('POST')) {
             //dd($request);
             $request->validate([
@@ -38,13 +40,26 @@ class ContactsController extends RootController
             [
                 'capchacode.same' => 'The CAPTCHA is not correct.'
             ]);
+
+            if($request->contact_type == 'related'){
+                $releated_type = $request->orderplace_related;
+            }elseif($request->contact_type == 'existing'){
+                $releated_type = $request->order_related;
+                $oid = $request->oid;
+            }else{
+                $subject = $request->subject;
+            }
 			
             $contact_details = [];
-            $contact_details['contact_type']= $request->contact_type;
+            $contact_details['contact_type'] = $request->contact_type;
+            $contact_details['query_related']= $releated_type;
+            $contact_details['order_id']     = $oid;
+            $contact_details['subject']      = $subject;
             $contact_details['name']        = $request->name;
             $contact_details['email']       = $request->email;
             $contact_details['mobile']      = $request->mobile;
             $contact_details['is_block']    = 'N';
+            $contact_details['sitename']    = config('global.website_shortcode');
             $contact_details['created_at']  = date('Y-m-d H:i:s');
             $contact_details['updated_at']  = date('Y-m-d H:i:s');
 

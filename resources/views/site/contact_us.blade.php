@@ -48,41 +48,41 @@ $meta_title = $contact_us->meta_title;
         </div>
         <div class="con-field hidediv" id="showrelated" style="display: none;">
             <div class="title"><sup>*</sup><label>Related to:</label></div>
-            <select name="" id="">
-                <option value="0">Please Select an Option</option>
-                <option value="- Delivery Location">- Delivery Location</option>
-                <option value="- When can we deliver">- When can we deliver</option>
-                <option value="- Products">- Products</option>
-                <option value="- Payments">- Payments</option>
-                <option value="- Refund Policy">- Refund Policy</option>
-                <option value="- Bulk Order">- Bulk Order</option>
-                <option value="- Corporate enquiry">- Corporate enquiry</option>
-                <option value="- Customized order">- Customized order</option>
-                <option value="- Other">- Other</option>
+            <select name="orderplace_related" id="orderplace_related">
+                <option value="">Please Select an Option</option>
+                <option value="Delivery Location">- Delivery Location</option>
+                <option value="When can we deliver">- When can we deliver</option>
+                <option value="Products">- Products</option>
+                <option value="Payments">- Payments</option>
+                <option value="Refund Policy">- Refund Policy</option>
+                <option value="Bulk Order">- Bulk Order</option>
+                <option value="Corporate enquiry">- Corporate enquiry</option>
+                <option value="Customized order">- Customized order</option>
+                <option value="Other">- Other</option>
             </select>
         </div>
         <div class="hidediv hidediv" id="showexisting" style="display: none;">
             <div class="con-field " >
                 <div class="title"><sup>*</sup><label>Related to:</label></div>
-                <select id="" name="" >	
-                    <option value="0">Please Select an Option</option>
-                    <option value="- Did you receive my order?">- Did you receive my order?</option>
-                    <option value="- When will my order get delivered?">- When will my order get delivered?</option>
-                    <option value="- Cancel my order">- Cancel my order</option>
-                    <option value="- Want a refund">- Want a refund</option>
-                    <option value="- Make a complaint">- Make a complaint</option>
-                    <option value="- Other">- Other</option>
+                <select id="order_related" name="order_related" >	
+                    <option value="">Please Select an Option</option>
+                    <option value="Did you receive my order?">- Did you receive my order?</option>
+                    <option value="When will my order get delivered?">- When will my order get delivered?</option>
+                    <option value="Cancel my order">- Cancel my order</option>
+                    <option value="Want a refund">- Want a refund</option>
+                    <option value="Make a complaint">- Make a complaint</option>
+                    <option value="Other">- Other</option>
                 </select>
             </div>
-            <div class="con-field " >
+            <div class="con-field" >
                 <div class="title"><sup>*</sup><label>Order ID:</label></div>
-                <input type="text" name="" id="" placeholder="Please Enter User ID">
+                <input type="text" name="oid" id="oid" placeholder="Please Enter Order ID">
             </div>
         </div>
         <div class="con-field hidediv" id="showother" style="display: none;">
             <div class="title">
             <sup>*</sup><label for="">Subject</label></div>
-            <input type="text" name="" id="" placeholder="Enter Your Subject">
+            <input type="text" name="subject" id="subject" placeholder="Enter Your Subject">
         </div>
         <div class="con-field">
             <div class="title">
@@ -405,13 +405,24 @@ $meta_title = $contact_us->meta_title;
 <script type="text/javascript">
     $(document).ready(function(){
       $("#contact_type").on('change', function(){
+
+        $("#order_related").prop('required',false);
+        $("#orderplace_related").prop('required',false);
+        $("#oid").prop('required',false);
+        $("#subject").prop('required',false);
+
         var demovalue = $(this).val();  
           $(".hidediv").hide();
           if(demovalue == "existing"){
-            $(".selcountry").hide();
+            //$(".selcountry").hide();
+            $("#order_related").prop('required',true);
+            $("#oid").prop('required',true);
           }
-          else{
-            $(".selcountry").show();
+          else if(demovalue == "related"){
+            //$(".selcountry").show();
+            $("#orderplace_related").prop('required',true);
+          }else{
+            $("#subject").prop('required',true);
           }
           $("#show"+demovalue).show();
       });

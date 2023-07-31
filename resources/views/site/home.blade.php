@@ -202,7 +202,7 @@ $currency = App\Http\Helper::get_currency();
                     <!--last product banner-->
                     <div id="cakes-banner">
                         <a href="" title="More Gifts">
-                            <img class="ban-img" src="images/baskets.webp" alt="More Gifts" width="400" height="400" />
+                            <img class="ban-img" src="{{asset('images/'.$category->banner)}}" alt="More Gifts" width="400" height="400" />
                             <div class="more-products"><span>More Products</span></div>
                         </a>
                     </div>
