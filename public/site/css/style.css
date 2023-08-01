@@ -409,7 +409,7 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
 .testimonial{ color:white; background-color:var(--deepestcol); font-size: 120%; display: inline-block; clear:both; padding: 0.5em 2em; margin-top: 3%; margin-left: 1%; }
 /* .price-section div:nth-child(1),.price-section div:nth-child(2){ display: inline-block; color: #565656; font-size: 145%; } */
 .option-container{display: flex;padding: 5px 0;position: relative;}
-.option-qty-price{    font-size: 15px ; margin-left: 15px;width: 50%;cursor: pointer;}
+.option-qty-price{    font-size: 15px ; margin-left: 25px;width: 50%;cursor: pointer;}
 .price-n-qty{    padding: 14px 0;} 
 .no-display{display: none;}
 .option-price{color: var(--sitecolor);}

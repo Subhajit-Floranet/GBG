@@ -384,12 +384,12 @@ li.alpha_index a:hover {color: #203060;/* text-decoration: underline; */}
 
 /*custom radio in product details*/
 .option-container input { position: absolute; opacity: 0; cursor: pointer; }
-.checkmark { position: absolute; top: 7px; left: -10px; height: 20px; width: 20px; background-color: #eee; border-radius: 50%; }
+.checkmark { position: absolute; top: 7px; left: 0; height: 16px; width: 16px; background-color: #eee; border-radius: 50%; }
 .option-container:hover input ~ .checkmark { background-color: #ccc; }
 .option-container input:checked ~ .checkmark { background-color: var(--deepcol); }
 .checkmark:after { content: ""; position: absolute; display: none; }
 .option-container input:checked ~ .checkmark:after { display: block; }
-.option-container  .checkmark:after { top: 6px; left: 6px; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+.option-container  .checkmark:after { top: 5px; left: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
 
 
 /* Chrome, Safari, Edge, Opera */
