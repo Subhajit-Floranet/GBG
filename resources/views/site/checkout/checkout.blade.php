@@ -43,15 +43,15 @@ if (Auth::check()) {
                                     <div class="row guest_user_form" id="loginwithoutid">
                                         <div class="form-group">
                                             <label>Name :</label>
-                                            <input type="text" name="checkout_guest_name" class="form-control" id="checkout_guest_name" placeholder="Name*" value="" >
+                                            <input type="text" name="checkout_guest_name" class="form-control" id="checkout_guest_name" placeholder="Name*" value="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Email ID :</label>
-                                            <input type="text" name="checkout_guest_email" class="form-control" id="checkout_guest_email" placeholder="Email*" value="" >
+                                            <input type="text" name="checkout_guest_email" class="form-control" id="checkout_guest_email" placeholder="Email*" value="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Mobile No. :</label>
-                                            <input type="text" name="checkout_guest_mobile" class="form-control" id="checkout_guest_mobile" placeholder="Mobile Number*" value="" >
+                                            <input type="text" name="checkout_guest_mobile" class="form-control" id="checkout_guest_mobile" placeholder="Mobile Number*" value="" required>
                                         </div>
                                         <div class="form-group button-container text-center">
                                             <button class="btn button-nfjp step2 checkoutlogin">Proceed</button>
@@ -63,11 +63,11 @@ if (Auth::check()) {
                                     <div class="row normal_user_form" id="loginwithid" style="display: none;">
                                         <div class="form-group">
                                             <label>Email ID :</label>
-                                            <input type="text" name="checkout_login_email" class="form-control" id="checkout_login_email" placeholder="Email*" value="" >
+                                            <input type="text" name="checkout_login_email" class="form-control" id="checkout_login_email" placeholder="Email*" value="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Password :</label>
-                                            <input type="text" name="checkout_login_password" class="form-control" id="checkout_login_password" placeholder="Password*" value="" >
+                                            <input type="text" name="checkout_login_password" class="form-control" id="checkout_login_password" placeholder="Password*" value="" required>
                                         </div>
                                         <div class="form-group button-container text-center">
                                             <button class="btn button-nfjp step2 checkoutlogin">Login</button>

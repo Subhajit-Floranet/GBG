@@ -132,6 +132,7 @@ $meta_title = $product_details->meta_title;
                 </div>
             </div>
             <div class="price-section">
+                
                 <div class="select-rupee ">
                     <select name="prodcurChange" id="prodcurChange" class="curChange noOutlineDropdown">
                         <?php foreach($currency as $value){ ?>
@@ -140,29 +141,34 @@ $meta_title = $product_details->meta_title;
                             {{$value->currency}}</option>
                         <?php } ?>
                     </select>
-                    <span class="main-price-section">
-                        <div>{!! Currency::default($product_details->price, ['need_currency' => false, 'number_format' => config('global.number_format_limit')]) !!}</div>
-                        @if($product_details->actual_price > $product_details->price)
-                            <div class="stripe-text">{!! Currency::default($product_details->actual_price, ['need_currency' => false, 'number_format' => config('global.number_format_limit')]) !!}</div>
-                        @endif
-                    </span>
-
-                    <?php foreach($currency as $cur){ ?>
-                        <span class="{{ strtolower($cur->symbol) }}-price-section currencyClass" id="price-tag-usd" style="display:none;">
-                            <div>{!! Currency::default($product_details->price, ['need_currency' => false, 'number_format' => config('global.number_format_limit'), 'currency' => $cur->symbol]) !!}</div>
-            
+                    @if ( $product_details->has_attribute == 'N' )
+                        <span class="main-price-section">
+                            <div>{!! Currency::default($product_details->price, ['need_currency' => false, 'number_format' => config('global.number_format_limit')]) !!}</div>
                             @if($product_details->actual_price > $product_details->price)
                                 <div class="stripe-text">{!! Currency::default($product_details->actual_price, ['need_currency' => false, 'number_format' => config('global.number_format_limit')]) !!}</div>
                             @endif
                         </span>
-                    <?php } ?>
+
+                        <?php foreach($currency as $cur){ ?>
+                            <span class="{{ strtolower($cur->symbol) }}-price-section currencyClass" id="price-tag-usd" style="display:none;">
+                                <div>{!! Currency::default($product_details->price, ['need_currency' => false, 'number_format' => config('global.number_format_limit'), 'currency' => $cur->symbol]) !!}</div>
+                
+                                @if($product_details->actual_price > $product_details->price)
+                                    <div class="stripe-text">{!! Currency::default($product_details->actual_price, ['need_currency' => false, 'number_format' => config('global.number_format_limit')]) !!}</div>
+                                @endif
+                            </span>
+                        <?php } ?>
+                    @endif 
                 </div>
-                    @if($product_details->actual_price > 0 && ($product_details->actual_price > $product_details->price))
-                        @php $discount = (($product_details->actual_price - $product_details->price)/$product_details->actual_price) * 100; @endphp
-                        @if(number_format($discount, 2) > 0)
-                            <div class="offer">{{number_format($discount, 1)}}% Off</div>
+                    @if ( $product_details->has_attribute == 'N' )
+                        @if($product_details->actual_price > 0 && ($product_details->actual_price > $product_details->price))
+                            @php $discount = (($product_details->actual_price - $product_details->price)/$product_details->actual_price) * 100; @endphp
+                            @if(number_format($discount, 2) > 0)
+                                <div class="offer">{{number_format($discount, 1)}}% Off</div>
+                            @endif
                         @endif
                     @endif
+                   
                 <div class="quantity">
                     <label for="">QTY:</label>
                     <input type="number" id="quantity" name="quantity" min="1" value="1" onkeypress="return !(event.charCode == 46)" oninput="this.value=(parseInt(this.value)||1)" step="1" class="form-control Qty rk-qty" placeholder="1" max="30" >
