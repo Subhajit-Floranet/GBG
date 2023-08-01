@@ -39,40 +39,47 @@ $meta_title = $contact_us->meta_title;
         @csrf
         <div class="con-field">
             <div class="title"><sup>*</sup><label>Type of Query :</label></div>
-            <select name="contact_type" id="contact_type" required>
-                <option value="">Please select an Option</option>
-                <option value="related">Want to place an order?</option>
-                <option value="existing">Regarding an existing order</option>
-                <option value="other">Other</option>
-            </select>
+            <div class="field-body">
+                <select name="contact_type" id="contact_type" required="" >
+                    <option value="">Please select an Option</option>
+                    <option value="related">Want to place an order?</option>
+                    <option value="existing">Regarding an existing order</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
         </div>
+        
         <div class="con-field hidediv" id="showrelated" style="display: none;">
             <div class="title"><sup>*</sup><label>Related to:</label></div>
-            <select name="orderplace_related" id="orderplace_related">
-                <option value="">Please Select an Option</option>
-                <option value="Delivery Location">- Delivery Location</option>
-                <option value="When can we deliver">- When can we deliver</option>
-                <option value="Products">- Products</option>
-                <option value="Payments">- Payments</option>
-                <option value="Refund Policy">- Refund Policy</option>
-                <option value="Bulk Order">- Bulk Order</option>
-                <option value="Corporate enquiry">- Corporate enquiry</option>
-                <option value="Customized order">- Customized order</option>
-                <option value="Other">- Other</option>
-            </select>
+            <div class="field-body">
+                <select name="orderplace_related" id="orderplace_related" required="">
+                    <option value="">Please Select an Option</option>
+                    <option value="Delivery Location">- Delivery Location</option>
+                    <option value="When can we deliver">- When can we deliver</option>
+                    <option value="Products">- Products</option>
+                    <option value="Payments">- Payments</option>
+                    <option value="Refund Policy">- Refund Policy</option>
+                    <option value="Bulk Order">- Bulk Order</option>
+                    <option value="Corporate enquiry">- Corporate enquiry</option>
+                    <option value="Customized order">- Customized order</option>
+                    <option value="Other">- Other</option>
+                </select>
+            </div>
         </div>
         <div class="hidediv hidediv" id="showexisting" style="display: none;">
             <div class="con-field " >
                 <div class="title"><sup>*</sup><label>Related to:</label></div>
-                <select id="order_related" name="order_related" >	
-                    <option value="">Please Select an Option</option>
-                    <option value="Did you receive my order?">- Did you receive my order?</option>
-                    <option value="When will my order get delivered?">- When will my order get delivered?</option>
-                    <option value="Cancel my order">- Cancel my order</option>
-                    <option value="Want a refund">- Want a refund</option>
-                    <option value="Make a complaint">- Make a complaint</option>
-                    <option value="Other">- Other</option>
-                </select>
+                <div class="field-body">
+                    <select id="order_related" name="order_related" required="">	
+                        <option value="">Please Select an Option</option>
+                        <option value="Did you receive my order?">- Did you receive my order?</option>
+                        <option value="When will my order get delivered?">- When will my order get delivered?</option>
+                        <option value="Cancel my order">- Cancel my order</option>
+                        <option value="Want a refund">- Want a refund</option>
+                        <option value="Make a complaint">- Make a complaint</option>
+                        <option value="Other">- Other</option>
+                    </select>
+                </div>
             </div>
             <div class="con-field" >
                 <div class="title"><sup>*</sup><label>Order ID:</label></div>
@@ -80,24 +87,20 @@ $meta_title = $contact_us->meta_title;
             </div>
         </div>
         <div class="con-field hidediv" id="showother" style="display: none;">
-            <div class="title">
-            <sup>*</sup><label for="">Subject</label></div>
-            <input type="text" name="subject" id="subject" placeholder="Enter Your Subject">
+            <div class="title"> <sup>*</sup><label for="">Subject</label></div>
+            <div class="field-body"><input type="text" name="subject" id="subject" placeholder="Enter Your Subject" required=""></div>
         </div>
         <div class="con-field">
-            <div class="title">
-            <sup>*</sup><label for="">Name</label></div>
-            <input required="" id="contact_name" placeholder="Name*" name="name" type="text">
+            <div class="title"> <sup>*</sup><label for="">Name</label></div>
+            <div class="field-body"><input  id="contact_name" placeholder="Name*" name="name" type="text" required=""></div>
         </div>
         <div class="con-field">
-            <div class="title">
-            <sup>*</sup><label for="">Email</label></div>
-            <input required="" id="contact_email" placeholder="Email*" name="email" type="text">
+            <div class="title"> <sup>*</sup><label for="">Email</label></div>
+            <div class="field-body"><input  id="contact_email" placeholder="Email*" name="email" type="text" required=""></div>
         </div>
         <div class="con-field">
-            <div class="title">
-            <sup>*</sup><label for="">Mobile</label></div>
-            <input required="" id="contact_mobile" placeholder="Mobile*" name="mobile" type="text">
+            <div class="title"> <sup>*</sup><label for="">Mobile</label></div>
+            <div class="field-body"><input  id="contact_mobile" placeholder="Mobile*" name="mobile" type="text" required=""></div>
         </div>
         {{-- <div class="con-field selcountry"  >
             <div class="title">
@@ -344,9 +347,8 @@ $meta_title = $contact_us->meta_title;
             </select>
         </div> --}}
         <div class="con-field no-flex">
-            <div class="title">
-            <sup>*</sup><label for="">Message:</label></div>
-            <textarea required="" id="contact_message" placeholder="Message*" name="message" cols="30" rows="10"></textarea>
+            <div class="title"> <sup>*</sup><label for="">Message:</label></div>
+            <textarea  id="contact_message" placeholder="Message*" name="message" cols="30" rows="10" required="" style="width:100%"></textarea>
         </div>
 
         <div class="verify-captcha-block">
@@ -357,8 +359,8 @@ $meta_title = $contact_us->meta_title;
                 </div>
             </div>
             <div class="captcha-down con-field">
-                <input required="" autocomplete="off" id="capcha_code" placeholder="Type the text*" equalto="#gencode" name="capchacode" type="text">
-                <input type="hidden" name="gencode_verify" id="gencode_verify" value="<?php echo $gencode; ?>" />
+                <div style="width:100%"><input  autocomplete="off" id="capcha_code" placeholder="Type the text*" equalto="#gencode" name="capchacode" type="text"></div>
+                <input required="" type="hidden" name="gencode_verify" id="gencode_verify" value="<?php echo $gencode; ?>" />
             </div>
         </div>
 
@@ -385,21 +387,8 @@ $meta_title = $contact_us->meta_title;
     .captchazone{border: 1px solid #a7a8a8; border-radius: 3px; padding: 5px; margin: 0!important; margin-bottom: 1em!important;}
     .fsmallcaptcha{width: 100%!important;}
     .reloadcaptcha{font-size: 25px!important; cursor: pointer;}
-    .contactform_new_captcha {
-        border: none;
-        text-align: center;
-        font-size: 30px!important;
-        font-style: italic;
-        font-family: 'sailecregular';
-        letter-spacing: 30px;
-        font-weight: 900;
-        color: #817e94;
-        padding: 0;
-        background-image: url(http://localhost/live-project/nfjp/public/images/capcha2.jpg);
-        padding: 0!important;
-        margin-top: 0!important;
-        width: 100%;
-    }
+    /* .contactform_new_captcha { border: none; text-align: center; font-size: 30px!important; font-style: italic; font-family: 'sailecregular'; letter-spacing: 30px; font-weight: 900; color: #817e94; padding: 0; background-image: url(http://localhost/live-project/nfjp/public/images/capcha2.jpg); padding: 0!important; margin-top: 0!important; width: 100%; */
+    
 </style>
 
 <script type="text/javascript">
@@ -459,6 +448,8 @@ $meta_title = $contact_us->meta_title;
         });
 
         // validate the comment form when it is submitted
+
+
         $("#contactUs").validate({
             rules: {
                 capcha_code: {
@@ -475,6 +466,10 @@ $meta_title = $contact_us->meta_title;
             }
         });
     });
+    // $('#contactUs').on('submit',function(){
+    //     console.log('contact submitted')
+    // });
+   
     
 </script> 
 

@@ -179,7 +179,7 @@ button, input, optgroup, select, textarea { font-family: inherit; line-height: 1
 .required-formfield { color: #ff0000; margin-right: 5px; font-size: 11px; }
 
 
-.contactform_new_captcha { height: 28px!important; border: none!important; border-bottom-color: #FFFFFF!important; text-align: center; font-size: 19px!important; background-image: url(https://www.expressgiftbasketsusa.com/captcha_bg2.jpg); padding: 0!important; margin-top: 0!important; }
+/* .contactform_new_captcha { height: 28px!important; border: none!important; border-bottom-color: #FFFFFF!important; text-align: center; font-size: 19px!important; background-image: url(https://www.expressgiftbasketsusa.com/captcha_bg2.jpg); padding: 0!important; margin-top: 0!important; } */
 .required-smalltext { color: #250024; font-size: 11px; }
 .conpage_btncontent:nth-child(1) { order: 1; text-align: left; }
 .conpage_btncontent { flex: 1; width: 50%; }
@@ -354,7 +354,12 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
  .services { width: 90%; margin: 35px auto 0 } .services-section { align-items: center; justify-content: space-around; width: 22% } .ss-icon { width: 20% } .ss-txt { width: 80% } .ss-icon i { font-size: 40px; color: var(--sitecolor) } .ss-txt p { line-height: 25px } .sst-bold { font-weight: 700; font-size: 19px } .sst-light { color: gray } .shop-by-cat, .shop-by-price, .shop-by-relation { padding: 0 2%; margin-top: 2% } .sbc-heading, .sbp-heading, .sbr-heading { margin-left: 10px } .sbc-heading p, .sbp-heading p, .sbr-heading p { position: relative; font-size: 30px; font-weight: 600; padding-bottom: 15px }
   .sbc-heading p::after, .sbp-heading p::after, .sbr-heading p::after { content: ""; position: absolute; width: 12%; height: 1px; bottom: 0; left: 0; border-bottom: 4px solid var(--sitecolor) }
    .sbc-box, .sbp-box, .sbrb-box { width: 25%; padding: 15px; float: left; text-align: center; color: var(--var(--black)); } 
-   .sbc-box h3, .sbp-box h3, .sbr-box h3, .sbrb-box h3 { text-transform: uppercase; font-size: 20px; padding-top: 15px; font-weight: 500;color: var(--black); } .sbcb-cat, .sbpb-cat, .sbrb-cat { width: 100%; height: 0; padding-bottom: 100% } .sbcb-cat img, .sbpb-cat img, .sbrb-cat img { width: 100%; height: auto; border-radius: 5% } .sbc-body, .sbp-body, .sbr-body { margin-top: 2% } .content { background-color: #FAEBCC; padding: 1rem 0; margin-top: 2rem } .con-sec { width: 95%; margin: 3rem auto; font-family: montserrat, sans-serif } .con-sec h2 { margin-top: 2rem; text-align: left; font-size: 1.7rem } .con-sec p { text-align: justify; padding-top: 1.5rem; line-height: 1.7rem; font-size: 1.2rem } .testimonials { width: 95%; margin: 3rem auto } .t-head { font-size: 2.5rem; font-weight: 600; text-align: center } .t-body { width: 100%; margin-top: 2rem } .test-sec { width: 85% } .test-sec p { font-weight: 500; padding: .5rem 0 1rem } .tst-date-loc { display: flex; justify-content: space-between } .tst-date-loc p { padding: 0 0 .5rem; font-size: .9rem; color: gray; width: 100% } .quick-links {width: 100%;margin: 5rem auto 0;align-items: center;} .quick-links p { font-weight: 600; text-align: center; font-size: 2rem } .ql-body { margin: 2rem auto; width: 100% } .ql-body ul { list-style: none; justify-content: flex-start } .ql-body ul li { width: 20%; padding: 1.5rem .5rem; text-align: center } .ql-body ul li p { font-weight: 500; line-height: 15px } .ql-body ul li p a { color: var(--black); transition: color .2s linear; font-size: 1.2rem } .ql-body ul li p a:hover { color: #edb203 } footer { margin: 4rem 2rem 2rem; text-transform: lowercase; }
+   .sbc-box h3, .sbp-box h3, .sbr-box h3, .sbrb-box h3 { text-transform: uppercase; font-size: 20px; padding-top: 15px; font-weight: 500;color: var(--black); } .sbcb-cat, .sbpb-cat, .sbrb-cat { width: 100%; height: 0; padding-bottom: 100% } .sbcb-cat img, .sbpb-cat img, .sbrb-cat img { width: 100%; height: auto; border-radius: 5% } .sbc-body, .sbp-body, .sbr-body { margin-top: 2% } .content { background-color: #FAEBCC; padding: 1rem 0; margin-top: 2rem } 
+.con-sec { width: 95%; margin: 3rem auto;}
+.con-sec h2 { margin-top: 2rem; text-align: left; font-size: 1.7rem } 
+.con-sec p { text-align: justify; padding-top: 1.5rem; line-height: 1.7rem; font-size: 1.2rem } 
+.con-sec p u,.con-sec h2 a strong{color: var(--sitecolor);font-weight:600;}
+.testimonials { width: 95%; margin: 3rem auto } .t-head { font-size: 2.5rem; font-weight: 600; text-align: center } .t-body { width: 100%; margin-top: 2rem } .test-sec { width: 85% } .test-sec p { font-weight: 500; padding: .5rem 0 1rem } .tst-date-loc { display: flex; justify-content: space-between } .tst-date-loc p { padding: 0 0 .5rem; font-size: .9rem; color: gray; width: 100% } .quick-links {width: 100%;margin: 5rem auto 0;align-items: center;} .quick-links p { font-weight: 600; text-align: center; font-size: 2rem } .ql-body { margin: 2rem auto; width: 100% } .ql-body ul { list-style: none; justify-content: flex-start } .ql-body ul li { width: 20%; padding: 1.5rem .5rem; text-align: center } .ql-body ul li p { font-weight: 500; line-height: 15px } .ql-body ul li p a { color: var(--black); transition: color .2s linear; font-size: 1.2rem } .ql-body ul li p a:hover { color: #edb203 } footer { margin: 4rem 2rem 2rem; text-transform: lowercase; }
 .f-categories:last-child { display: flex; align-items: center; width: 30%; }
 .f-categories p {font-size: 1.2rem;font-weight: 700;color: var(--black);text-transform: uppercase;}
 .f-categories ul { margin-top: 1rem; list-style: none } .f-categories ul li { padding-bottom: 1rem } .f-categories ul li a { text-decoration: none; color: #4c4848; font-size: 1rem; font-weight: 600; transition: color .2s linear;text-transform: uppercase;} .f-categories ul li a:hover { color: #edb203 } 
@@ -363,9 +368,9 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
 /*----------------------------------PRODUCT DETAILS STARTS HERE--------------------*/
 .desc-list-1{ list-style: none; color: #6C6C6C; font-size: 15.5px; padding-bottom: 0.5%; }
 .product-details{ width: 85%;margin: 2% auto 0;}
-.product-image{ width: 40%; /*margin-left: 5%;*/    text-align: center;     border: 1px solid var(--black); border-radius: 7px;}
-.product-details img{ width: 100%;/* max-width: 600px; border: 1px solid var(--black); margin-top: 2%;*/ border-radius: 15px; height: auto;}
-.product-description{ width: 54%;/*margin-right: 5%;*/ }
+.product-image{ width: 42%; /*margin-left: 5%;*/    text-align: center;     border: 1px solid var(--black); border-radius: 7px;}
+.product-details img{ width: 100%;/* max-width: 600px; border: 1px solid var(--black); margin-top: 2%;*/ border-radius: 15px; height: 100%;}
+.product-description{ width: 55%;/*margin-right: 5%;*/ }
 .p1{/*padding-top: 2%;*/    padding-bottom: 0.5%; font-size: 140%; font-weight: 400; }
 /* .product-description .p1{ margin-top: 11%; padding-bottom: 3%; font-size: 21px; color: #3d3d3d; } */
 
@@ -404,7 +409,7 @@ tr { display: table-row; vertical-align: inherit; border-color: #ccc; }
 .testimonial{ color:white; background-color:var(--deepestcol); font-size: 120%; display: inline-block; clear:both; padding: 0.5em 2em; margin-top: 3%; margin-left: 1%; }
 /* .price-section div:nth-child(1),.price-section div:nth-child(2){ display: inline-block; color: #565656; font-size: 145%; } */
 .option-container{display: flex;padding: 5px 0;position: relative;}
-.option-qty-price{    font-size: 20px ; margin-left: 15px;width: 50%;cursor: pointer;}
+.option-qty-price{    font-size: 15px ; margin-left: 15px;width: 50%;cursor: pointer;}
 .price-n-qty{    padding: 14px 0;} 
 .no-display{display: none;}
 .option-price{color: var(--sitecolor);}
@@ -776,7 +781,8 @@ padding-top: 0 !important;
 .lt-head{text-align: center;font-size: 30px;color: var(--sitecolor);font-weight: 600;}
 .lt-body{padding-top: 30px;}
 .lt-body .con-field{padding: 10px 0;display: flex;}
-.lt-body .con-field .title{width: 40%;}
+.lt-body .con-field .title{width: 30%;}
+.lt-body .con-field .field-body{width: 70%;}
 .lt-body .con-field sup{color: red;}
 .lt-body .con-field label{font-size: 17px;}
 .con-field select,.con-field input[type="text"],.con-field textarea{padding: 10px 0 10px 10px;border-radius: 5px;width: 100%;}
@@ -1049,7 +1055,7 @@ height: 550px;
 	.bg-bold,.bg-bold-rgt{font-size: 35px;}
     .sm-bold{    font-size: 25px;}
 	.product-details{justify-content: space-between;}
-	.product-image{width: 40%;}
+	/* .product-image{width: 40%;} */
 	.product-description{    width: 53%;}
 }
 
