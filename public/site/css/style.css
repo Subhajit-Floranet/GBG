@@ -781,7 +781,8 @@ padding-top: 0 !important;
 .lt-head{text-align: center;font-size: 30px;color: var(--sitecolor);font-weight: 600;}
 .lt-body{padding-top: 30px;}
 .lt-body .con-field{padding: 10px 0;display: flex;}
-.lt-body .con-field .title{width: 40%;}
+.lt-body .con-field .title{width: 30%;}
+.lt-body .con-field .field-body{width: 70%;}
 .lt-body .con-field sup{color: red;}
 .lt-body .con-field label{font-size: 17px;}
 .con-field select,.con-field input[type="text"],.con-field textarea{padding: 10px 0 10px 10px;border-radius: 5px;width: 100%;}
