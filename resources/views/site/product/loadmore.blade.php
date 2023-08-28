@@ -92,7 +92,7 @@ $reviewRating = App\Http\Helper::getProductReviewNRating($product->id);
 
                 <?php foreach($currency as $cur){ ?>
 
-                    <div class="home-price flex {{ strtolower($cur->symbol) }}-price-section" style="display:none;"> 
+                    <div class="home-price flex {{ strtolower($cur->symbol) }}-price-section currencyClass" style="display:none;"> 
                         @if($mrp > $mainPrice)
                             <div class="price-tag old-price">{!! Currency::default($mrp, ['need_currency' => false, 'number_format' => config('global.number_format_limit'), 'currency' => $cur->symbol]) !!}</div>
                         @endif

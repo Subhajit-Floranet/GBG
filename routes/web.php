@@ -7,11 +7,15 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\CheckController;
 use App\Http\Controllers\Site\CategoryController;
+use App\Http\Controllers\Site\CityController;
 use App\Http\Controllers\Site\ProductController;
 use App\Http\Controllers\Site\CartController;
 use App\Http\Controllers\Site\CheckoutController;
 use App\Http\Controllers\Site\ContactsController;
 use App\Http\Controllers\Site\UsersController;
+use App\Http\Controllers\Site\ForgotPasswordController;
+use App\Http\Controllers\Site\ResetPasswordController;
+use App\Http\Controllers\Site\SocialAuthController;
 
 
 use App\Http\Controllers\Admin\GBGCmsController;
@@ -165,6 +169,7 @@ Route::get('/set-currency', [HomeController::class, 'set_currency'])->name('set_
 Route::any('/set-currency-order-summary', [HomeController::class, 'set_currency_order_summary'])->name('set_currency_order_summary');
 
 Route::any('/loadMore', [CategoryController::class, 'loadMore'])->name('loadMore');
+Route::any('/loadMoreCity', [CityController::class, 'loadMoreCity'])->name('loadMoreCity');
 Route::post('/reviewpost', [ProductController::class, 'reviewpost'])->name('reviewpost');
 Route::any('/attribute-details', [ProductController::class, 'getAttributeDetails'])->name('attribute-details');
 
@@ -184,19 +189,23 @@ Route::any('/coupon', [CartController::class, 'ApplyCoupon'])->name('coupon');
 Route::any('/remove-applied-coupon/{id}/{orderid}', [CartController::class, 'removeAppliedCoupon'])->name('remove-applied-coupon');
 
 //Facebook Registration
-Route::any('fbregister','SocialAuthController@fbregister')->name('fbregister');
+Route::any('fbregister', [SocialAuthController::class, 'fbregister'])->name('fbregister');
 
 //Gmail Registration
-Route::any('gmailregister','SocialAuthController@gmailregister')->name('gmailregister');
+Route::any('gmailregister', [SocialAuthController::class, 'gmailregister'])->name('gmailregister');
 
 //Facebook & Gmail Registration during checkout
-Route::any('fbregistercheckout','SocialAuthController@fbregistercheckout')->name('fbregistercheckout');
-Route::any('gmailregistercheckout','SocialAuthController@gmailregistercheckout')->name('gmailregistercheckout');
+Route::any('fbregistercheckout', [SocialAuthController::class, 'fbregistercheckout'])->name('fbregistercheckout');
+Route::any('gmailregistercheckout', [SocialAuthController::class, 'gmailregistercheckout'])->name('gmailregistercheckout');
 
 //Reset Password Section
-Route::any('/reset', 'ResetPasswordController@reset')->name('reset');
-Route::any('/sendResetLinkEmail', 'ForgotPasswordController@sendResetLinkEmail')->name('forgot');
-Route::any('/showResetForm/{token}', 'ResetPasswordController@showResetForm')->name('showResetForm');
+Route::any('/reset', [ResetPasswordController::class, 'reset'])->name('reset');
+Route::any('/sendResetLinkEmail', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('forgot');
+Route::any('/showResetForm/{token}', [ResetPasswordController::class, 'showResetForm'])->name('showResetForm');
+
+//Reset Password
+Route::any('/resetPassword', [ResetPasswordController::class, 'resetPassword'])->name('resetPassword');
+Route::any('/setpasswrd/{token}', [ResetPasswordController::class, 'setpasswrd'])->name('setpasswrd');
 
 Route::any('/cart-checkout', [CheckoutController::class, 'cartCheckout'])->name('cart-checkout');
 Route::any('/checkout', [CheckoutController::class, 'checkoutProcess'])->name('checkout-process');
