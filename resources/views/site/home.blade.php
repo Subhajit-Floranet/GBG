@@ -167,7 +167,7 @@ $currency = App\Http\Helper::get_currency();
 
                                     <?php foreach($currency as $cur){ ?>
 
-                                        <div class="home-price flex {{ strtolower($cur->symbol) }}-price-section" style="display:none;"> 
+                                        <div class="home-price flex {{ strtolower($cur->symbol) }}-price-section currencyClass" style="display:none;"> 
                                             @if($mrp > $mainPrice)
                                                 <div class="price-tag old-price">{!! Currency::default($mrp, ['need_currency' => false, 'number_format' => config('global.number_format_limit'), 'currency' => $cur->symbol]) !!}</div>
                                             @endif
@@ -506,5 +506,41 @@ $currency = App\Http\Helper::get_currency();
         {!! $home_bottom_content->content !!}
     </div>
 </section>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('.currencyClass').hide();
+    });
+
+    $('.curChange').on('change', function() {
+        //alert(this.value);
+        if(this.value != ''){
+            $.ajax({
+                type : "GET",
+                url : "{{ route('set_currency') }}/?currency="+this.value,
+                success : function(response){
+                    //console.log(response);
+                    response = JSON.parse(response);
+                    if(response.status == 'success'){
+                        $('#active_currency').val(response.currency);
+
+                        var activeCurName = response.currency.toLowerCase();
+
+                        if(response.currency != ''){
+                            $('.main-price-section').hide();
+                            $('.currencyClass').hide();
+                            $('.'+activeCurName+'-price-section').show();
+                            $('.curChange option[value="'+ response.currency +'"]').prop('selected', true);
+                        }
+                    }
+                },
+                error : function(){
+                }
+            });
+        }
+    });
+
+</script>
 
 @endsection
